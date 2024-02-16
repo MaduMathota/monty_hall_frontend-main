@@ -1,0 +1,70 @@
+<div class="container">
+  <div id="doors" class="row">
+    <div class="col-md-4" *ngFor="let door of doors; let i = index" [class.clickable]="state === 'PICK'"
+      (click)="state === 'PICK' && pickDoor(i)">
+      <mat-card class="mb-4" class="card-image" [class.selected]="pickedDoor === i">
+        <mat-card-content>
+          <div class="door  door-div mb-6"
+            [ngClass]="{'goat-door': door.revealed && door.prize === goatImage, 'car-door': door.revealed && door.prize === carImage}">
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+  <div *ngIf="state === 'REVEAL'" class="mt-3">
+    <button mat-raised-button color="primary" (click)="playerSwitch()" *ngIf="switchButtonVisible">Switch</button>
+    <button mat-raised-button color="primary" (click)="playerStay()" *ngIf="stayButtonVisible">Stay</button>
+  </div>
+  <button mat-raised-button color="primary" (click)="startOver()" *ngIf="playAgainVisible">Play Again</button>
+
+  <p class="outcome mt-3">{{ outcome }}</p>
+
+  <mat-divider class="mt-3"></mat-divider>
+
+  <p class="win-rate win-style mt-3">
+    Total Switches: {{ totalSwitchPlays }}<br /><br />
+    Manually Switch Win Rate: {{ manuallyswitchRate.toFixed(2) }}%<br /><br />
+    Total Stays: {{ totalStayPlays }}<br /><br />
+    Manually Stay Win Rate: {{ manuallystayRate.toFixed(2) }}%
+  </p>
+
+
+  <mat-divider class="mt-3"></mat-divider>
+
+  <h2>Simulations</h2>
+
+  <div>
+    <mat-label for="simulations">Number of Simulations:</mat-label>
+    <mat-card>
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput type="number" id="simulations" [(ngModel)]="simulations" />
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-divider class="mt-3"></mat-divider>
+
+  <div>
+    <mat-checkbox class="mt-3" [(ngModel)]="changeDoor">Change the Door</mat-checkbox>
+  </div>
+
+
+  <mat-divider class="mt-3"></mat-divider>
+
+  <button mat-raised-button color="primary" class="mt-4" (click)="runSimulations()">Run Simulations</button>
+
+  <mat-divider class="mt-3"></mat-divider>
+
+  <h3 class="mt-3">Simulation Results</h3>
+  <mat-card class="mt-3 win-style">
+    <mat-card-content>
+      <p>Switch Win Rate: {{ switchWinRate.toFixed(2) }}%</p>
+      <p>Stay Win Rate: {{ stayWinRate.toFixed(2) }}%</p>
+    </mat-card-content>
+  </mat-card>
+
+</div>

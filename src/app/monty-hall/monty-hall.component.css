@@ -1,0 +1,111 @@
+
+body, html {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0c0c0c;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.door {
+  width: 100px;
+  height: 100px;
+  background-color: #372202;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.door:hover {
+  background-color: #383a3c;
+}
+
+#doors {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.win-rate {
+  font-size: 18px;
+  margin: 10px;
+}
+
+
+h2 {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+
+.selected {
+  background-color: #4b1d13; 
+  cursor: pointer; 
+}
+
+.card-image {
+  height: 200px;
+}
+
+
+.door {
+  border: 1px solid #49280a;
+  padding: 10px;
+  text-align: center;
+}
+
+.goat-door {
+  background-image: url('src/assets/goat.jpg');
+  background-size: cover;
+}
+
+.car-door {
+  background-image: url('src\assets\car.jpg');
+  background-size: cover;
+}
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.win-style {
+  text-align: left;
+}
+
+.door-div{
+  width: 280px; 
+  height: 150px
+}
