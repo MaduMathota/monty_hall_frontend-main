@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MontyHallService } from '../monty-hall.service';
-import { DoorState } from '../monty-hall/Door-states';
+import { MontyHallService } from '../MontyHallService/monty-hall.service';
+import { DoorState } from '../DoorSate/Door-states';
 
 @Component({
   selector: 'app-monty-hall',

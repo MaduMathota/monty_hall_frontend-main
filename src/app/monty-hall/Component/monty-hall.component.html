@@ -4,8 +4,9 @@
       (click)="state === 'PICK' && pickDoor(i)">
       <mat-card class="mb-4" class="card-image" [class.selected]="pickedDoor === i">
         <mat-card-content>
-          <div class="door  door-div mb-6"
-            [ngClass]="{'goat-door': door.revealed && door.prize === goatImage, 'car-door': door.revealed && door.prize === carImage}">
+          <div class="door  door-div mb-6" alt="door.prize"
+            [ngClass]="{'goat-door': door.revealed && door.prize === goatImage, 'car-door': door.revealed && door.prize === carImage  }">
+            <span *ngIf="door.revealed"> {{door.prize}} </span>
           </div>
         </mat-card-content>
       </mat-card>
@@ -22,11 +23,15 @@
 
   <mat-divider class="mt-3"></mat-divider>
 
+  <h2>Manual Input Results </h2>
+
+  <mat-divider class="mt-3"></mat-divider>
+
   <p class="win-rate win-style mt-3">
-    Total Switches: {{ totalSwitchPlays }}<br /><br />
-    Manually Switch Win Rate: {{ manuallyswitchRate.toFixed(2) }}%<br /><br />
-    Total Stays: {{ totalStayPlays }}<br /><br />
-    Manually Stay Win Rate: {{ manuallystayRate.toFixed(2) }}%
+    Switch Count: {{ totalSwitchPlays }}<br /><br />
+    Switch Success Percentage: {{ manuallyswitchRate.toFixed(2) }}%<br /><br />
+    Stay Count : {{ totalStayPlays }}<br /><br />
+    Success Percentage Without Switching : {{ manuallystayRate.toFixed(2) }}%
   </p>
 
 
@@ -61,8 +66,8 @@
   <h3 class="mt-3">Simulation Results</h3>
   <mat-card class="mt-3 win-style">
     <mat-card-content>
-      <p>Switch Win Rate: {{ switchWinRate.toFixed(2) }}%</p>
-      <p>Stay Win Rate: {{ stayWinRate.toFixed(2) }}%</p>
+      <p>Switch Success Percentage: {{ switchWinRate.toFixed(2) }}%</p>
+      <p>Success Percentage Without Switching : {{ stayWinRate.toFixed(2) }}%</p>
     </mat-card-content>
   </mat-card>
 
